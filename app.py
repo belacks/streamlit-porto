@@ -134,7 +134,12 @@ st.title("Project Portfolio - Muhammad Ali Ashari") # <-- Ganti [Nama Anda]
 st.write("""
 Welcome to my portfolio! Below are some of the projects I've worked on
 in the fields of Data Science, Machine Learning, and Data Analysis.
-(Feel free to add a brief introduction about yourself here).
+I am a Data Science undergraduate student at Telkom University with exceptional professional skills in leadership, project management, and strategic
+communication that have successfully balanced rigorous academics with significant organizational responsibilities. As the head of the most significant
+e-sports and sports event in our department, I led a diverse team to deliver a high-impact event that enhanced department engagement. Additionally, my
+role as a staff at the Data Science Student Association allowed me to refine my abilities in coordinating cross-functional initiatives and streamlining
+operations. These experiences have not only strengthened my expertise in event coordination and logistics management but also set me apart as a
+proactive problem solver who thrives in fast-paced, collaborative environments.
 """)
 st.divider()
 
