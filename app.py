@@ -182,7 +182,7 @@ for project in projects:
             try:
                 code_image = Image.open(project["code_image_path"])
                 # Updated caption to English
-                st.image(code_image, caption=f"Code Screenshot for {project['title']}", use_column_width=True)
+                st.image(code_image, caption=f"Code Screenshot for {project['title']}", use_container_width=True)
             except Exception as e:
                 st.warning(f"Failed to load code image: {project['code_image_path']}. Error: {e}")
         else:
@@ -196,7 +196,7 @@ for project in projects:
             try:
                 result_image = Image.open(project["result_image_path"])
                 # Updated caption to English
-                st.image(result_image, caption=f"Result Screenshot for {project['title']}", use_column_width=True)
+                st.image(result_image, caption=f"Result Screenshot for {project['title']}", use_container_width=True)
             except Exception as e:
                  st.warning(f"Failed to load result image: {project['result_image_path']}. Error: {e}")
         else:
