@@ -73,19 +73,6 @@ If you want to run this application on your local machine:
 
 This application is deployed using [Streamlit Community Cloud](https://streamlit.io/cloud). Simply connect this GitHub repository to your Streamlit Cloud account. Ensure the `requirements.txt` file is correct.
 
-## 🔧 Customization (For Your Own Portfolio)
-
-If you want to use this template for your own portfolio:
-
-1.  **Fork/Clone this repository.**
-2.  **Edit `app.py`:**
-    * Change `[Your Name]` in `st.set_page_config` and `st.title`.
-    * **Modify the `projects` list**: Remove the sample project data and add a dictionary for each of your projects. Fill in all the keys (`title`, `demo_link`, `colab_link`, `code_image_path`, `result_image_path`, `background`, `description`, `methodology_tools`, `tasks`, `benefits`) with your actual project details.
-    * Adjust the introduction and footer text if needed.
-3.  **Update `images/` Folder:** Delete the sample images and add your project's code and result screenshots. Ensure the image paths in `app.py` match the filenames in this folder.
-4.  **Update `README.md`:** Don't forget to replace placeholders like `[Your Name]`, the Streamlit Cloud URL, your GitHub username/repo name, and your contact links.
-5.  **Deploy to Streamlit Cloud!**
-
 
 ## 👤 About Me / Contact
 
