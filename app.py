@@ -425,12 +425,11 @@ def education_section():
     st.markdown('<div class="highlight-box">', unsafe_allow_html=True)
     st.markdown("""
     ### Telkom University
-    **B.Sc. Data Science** | 2020 - Present
+    **B.Sc. Data Science** | 2022 - 2026 (Expected
     
-    - GPA: 3.8/4.0
-    - Relevant Coursework: Machine Learning, Statistical Learning, Big Data Analytics, Data Mining, Computer Vision
+    - GPA: 3.62/4.0
+    - Relevant Coursework: Machine Learning, Statistical Learning, Big Data Analytics, Data Mining, Deep Learning, Artifical Intelligence
     - Academic Projects: Developed multiple machine learning models for real-world problem solving
-    - Awards: Dean's List for Academic Excellence (2021-2023)
     """)
     st.markdown('</div>', unsafe_allow_html=True)
 
@@ -444,9 +443,9 @@ def contact_section():
     with col1:
         st.subheader("Contact Information")
         st.markdown("""
-        - 📧 **Email:** your.email@example.com
-        - 📱 **Phone:** +62 xxx-xxxx-xxxx
-        - 📍 **Location:** Indonesia
+        - 📧 **Email:** aliashari0304@gmail.com
+        - 📱 **Phone:** +62 851-5755-8843
+        - 📍 **Location:** Bandung, Indonesia
         
         Feel free to reach out for collaborations, job opportunities, or just to say hello!
         """)
