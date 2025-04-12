@@ -429,8 +429,7 @@ def education_section():
      GPA: 3.62/4.00
      
     - Relevant Coursework: Machine Learning, Statistical Learning, Big Data Analytics, Data Mining, Deep Learning, Artifical Intelligence
-    - Academic Projects: Developed and optimized a hybrid neural network architecture using CNN, RNN, and MLP, achieving significant improvements in audio
-noise reduction and enhanced overall sound quality.
+    - Academic Projects: Developed and optimized a hybrid neural network architecture using CNN, RNN, and MLP, achieving significant improvements in audio noise reduction and enhanced overall sound quality.
     """)
     st.markdown('</div>', unsafe_allow_html=True)
 
