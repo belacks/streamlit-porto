@@ -4,7 +4,7 @@ Selamat datang di repository aplikasi portofolio pribadi saya! Aplikasi ini diba
 
 **➡️ Lihat Aplikasi Langsung (Streamlit Cloud):**
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)]([https://GANTI_DENGAN_URL_STREAMLIT_APP_ANDA.streamlit.app/](https://projectlist.streamlit.app/))
-*(**Penting:** Ganti URL di atas dengan URL aplikasi Anda setelah berhasil di-deploy!)*
+
 
 ---
 
