@@ -55,7 +55,7 @@ projects = [
     },
     {
         "title": "Sentiment Analysis on IMDB Movie Reviews",
-        "demo_link": https://anantiment.streamlit.app/, # Tidak ada demo streamlit
+        "demo_link": "https://anantiment.streamlit.app/", # Tidak ada demo streamlit
         "colab_link": "https://colab.research.google.com/drive/1Ay7z0fmJIVPWQGXri4tE0HwZSYafsKgH?usp=sharing", # Ganti dengan link asli atau None
         "code_image_path": "images/project2_code.png", # Ganti path
         "result_image_path": "images/project2_result.png", # Ganti path
