@@ -204,4 +204,4 @@ st.markdown("---")
 # Updated footer text to English
 st.write("Thank you for visiting my portfolio.")
 # Add links to LinkedIn, GitHub, etc. if desired
-st.write("[Your LinkedIn](https://linkedin.com/in/...) | [Your GitHub](https://github.com/...)")
+st.write("[Ali Ashari's LinkedIn](https://www.linkedin.com/in/ali-ashari/) | [belacks's repository](https://github.com/belacks)")
