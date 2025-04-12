@@ -24,7 +24,7 @@ def load_css():
         border-left: 5px solid #4682B4;
     }
     .project-title {
-        color: #4682B4;
+        color: #010c1f;
         margin-bottom: 1rem;
     }
     .section-divider {
