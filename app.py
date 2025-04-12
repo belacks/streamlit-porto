@@ -488,7 +488,7 @@ def main():
             border-left: 3px solid #64b5f6;
         }
         .project-title {
-            color: #64b5f6;
+            color: #010c1f;
         }
         .stTabs [data-baseweb="tab-list"] button [data-testid="stMarkdownContainer"] p {
             color: #f0f0f0;
