@@ -388,7 +388,7 @@ def project_section():
                 if os.path.exists(project["code_image_path"]):
                     try:
                         code_image = Image.open(project["code_image_path"])
-                        st.image(code_image, caption=f"Code Sample - {project['title']}", use_column_width=True)
+                        st.image(code_image, caption=f"Code Sample - {project['title']}", use_container_width=True)
                     except Exception as e:
                         st.warning(f"Failed to load code image: {e}")
                 else:
@@ -404,7 +404,7 @@ def project_section():
                 if os.path.exists(project["result_image_path"]):
                     try:
                         result_image = Image.open(project["result_image_path"])
-                        st.image(result_image, caption=f"Results - {project['title']}", use_column_width=True)
+                        st.image(result_image, caption=f"Results - {project['title']}", use_container_width=True)
                     except Exception as e:
                         st.warning(f"Failed to load result image: {e}")
                 else:
