@@ -4,7 +4,7 @@ import os # Untuk memeriksa keberadaan file gambar
 
 # --- Konfigurasi Halaman (Opsional tapi bagus) ---
 st.set_page_config(
-    page_title="Portofolio [Nama Anda]",
+    page_title="Portofolio Muhammad Ali Ashari",
     page_icon="📊", # Anda bisa gunakan emoji lain atau path ke file favicon
     layout="wide" # 'centered' atau 'wide'
 )
@@ -18,9 +18,9 @@ st.set_page_config(
 # ==============================================================================
 projects = [
     {
-        "title": "Contoh Proyek 1: Deteksi Hoaks",
-        "demo_link": "https://link-ke-streamlit-app-anda.streamlit.app/", # Ganti dengan link asli atau None
-        "colab_link": "https://colab.research.google.com/drive/link-ke-colab-anda", # Ganti dengan link asli atau None
+        "title": "Indonesian Hoax News Detection",
+        "demo_link": "https://detecthoax.streamlit.app/", # Ganti dengan link asli atau None
+        "colab_link": "https://colab.research.google.com/drive/1jI7xyYF4qogBrShcqPD8hy4r6G1NFTtn?usp=sharing", # Ganti dengan link asli atau None
         "code_image_path": "images/project1_code.png", # Ganti dengan path ke screenshot kode Anda
         "result_image_path": "images/project1_result.png", # Ganti dengan path ke screenshot hasil Anda
         "background": """
@@ -54,11 +54,44 @@ projects = [
         """
     },
     {
-        "title": "Contoh Proyek 2: Analisis Sentimen Review Produk",
-        "demo_link": None, # Tidak ada demo streamlit
-        "colab_link": "https://colab.research.google.com/drive/link-lain", # Ganti dengan link asli atau None
+        "title": "Sentiment Analysis on IMDB Movie Reviews",
+        "demo_link": https://anantiment.streamlit.app/, # Tidak ada demo streamlit
+        "colab_link": "https://colab.research.google.com/drive/1Ay7z0fmJIVPWQGXri4tE0HwZSYafsKgH?usp=sharing", # Ganti dengan link asli atau None
         "code_image_path": "images/project2_code.png", # Ganti path
         "result_image_path": "images/project2_result.png", # Ganti path
+        "background": """
+        **Masalah:** E-commerce memiliki banyak ulasan produk dari pengguna. Menganalisis sentimen ulasan ini secara manual
+        memakan waktu. Dibutuhkan cara otomatis untuk memahami opini pelanggan (positif/negatif/netral)
+        terhadap produk berdasarkan ulasan mereka.
+        """,
+        "description": """
+        Membangun model klasifikasi untuk menganalisis sentimen dari teks ulasan produk berbahasa Indonesia.
+        Model akan mengklasifikasikan ulasan ke dalam kategori positif, negatif, atau netral.
+        """,
+        "methodology_tools": """
+        * **Metodologi:** Fine-tuning model IndoBERT untuk klasifikasi teks, TF-IDF + Logistic Regression (sebagai baseline).
+        * **Tools:** Python, Pandas, Scikit-learn, Transformers (Hugging Face), Matplotlib/Seaborn (untuk visualisasi).
+        """,
+        "tasks": """
+        * Web scraping data ulasan (jika diperlukan dan diizinkan).
+        * Preprocessing teks (cleaning, normalization).
+        * Pelatihan dan fine-tuning model IndoBERT.
+        * Pelatihan model baseline.
+        * Analisis hasil dan perbandingan model.
+        * Visualisasi distribusi sentimen.
+        """,
+        "benefits": """
+        * Memberikan insight cepat kepada penjual/platform mengenai penerimaan produk.
+        * Membantu calon pembeli memahami opini umum tentang suatu produk.
+        * Otomatisasi proses analisis feedback pelanggan.
+        """
+    },
+    {
+        "title": "Canadian Amazon Product Information Chatbot",
+        "demo_link": None, # Tidak ada demo streamlit
+        "colab_link": "https://colab.research.google.com/drive/1S7j4htNk3lZ6MmYD74-P8ZeCZCLDs6R-?usp=sharing", # Ganti dengan link asli atau None
+        "code_image_path": "images/project3_code.png", # Ganti path
+        "result_image_path": "images/project3_result.png", # Ganti path
         "background": """
         **Masalah:** E-commerce memiliki banyak ulasan produk dari pengguna. Menganalisis sentimen ulasan ini secara manual
         memakan waktu. Dibutuhkan cara otomatis untuk memahami opini pelanggan (positif/negatif/netral)
