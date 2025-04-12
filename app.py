@@ -174,7 +174,7 @@ projects = [
         
         **Features:** Review text and sentiment label (positive/negative)
         
-        **Source:** Stanford AI Lab - Large Movie Review Dataset v1.0
+        **Source:** Kaggle - IMDB Dataset of 50K Movie Reviews
         """
     },
     {
