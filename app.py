@@ -126,11 +126,11 @@ projects = [
         
         **Description:** A collection of labeled news articles from various Indonesian news sources and fact-checking platforms, containing both legitimate and hoax content.
         
-        **Size:** Approximately 15,000 articles (balanced between hoax and legitimate)
+        **Size:** Approximately 29,000 articles (Around 9500 hoax and 19500 non-hoax news)
         
-        **Features:** Article text, publication date, source URL, category, and binary label (hoax/legitimate)
+        **Features:** title, Article text, publication date, source URL, category, and binary label (hoax/legitimate)
         
-        **Source:** Kaggle - Indonesian Hoax News Detection Dataset
+        **Source:** Kaggle - Indonesian Fact and Hoax Political News
         """
     },
     {
@@ -215,13 +215,13 @@ projects = [
         "dataset_source": """
         **Dataset:** Amazon.ca Product Information Dataset
         
-        **Description:** A custom dataset of product information scraped from Amazon's Canadian marketplace.
+        **Description:** With over 2.1 million unique products, this dataset offers a comprehensive view of the products available on Amazon.ca, one of Canada's leading online retailers. Collected through a web scraping process in 2023, this dataset provides valuable insights into product titles, pricing, ratings, and more.
         
-        **Size:** Approximately 10,000 products across multiple categories
+        **Size:** Approximately 2.1 million products across multiple categories
         
-        **Features:** Product titles, descriptions, specifications, pricing, customer reviews, Q&A sections, and images
+        **Features:** Product ID, descriptions, imgUrl, productURL, reviews, pricing, rating, listPrice, categoryName, and isBestSeller
         
-        **Source:** Custom web-scraped dataset created specifically for this project using Python (BeautifulSoup, Selenium)
+        **Source:** Kaggle - Amazon Canada Products 2023 (2.1M Products)
         """
     },
 ]
@@ -262,7 +262,7 @@ def header_section():
             <a href="https://github.com/belacks" target="_blank" class="social-link">
                 <i class="fab fa-github"></i> GitHub
             </a>
-            <a href="mailto:your.email@example.com" class="social-link">
+            <a href="mailto:aliashari0304@gmail.com" class="social-link">
                 <i class="fas fa-envelope"></i> Email
             </a>
         </div>
