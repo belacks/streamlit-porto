@@ -516,7 +516,7 @@ def main():
     st.markdown('<div class="section-divider"></div>', unsafe_allow_html=True)
     st.markdown("""
     <div style="text-align: center;">
-        <p>© 2024 Muhammad Ali Ashari | Portfolio built with Streamlit</p>
+        <p>© 2025 Muhammad Ali Ashari | Portfolio built with Streamlit</p>
         <p>
             <a href="https://www.linkedin.com/in/ali-ashari/" target="_blank">LinkedIn</a> •
             <a href="https://github.com/belacks" target="_blank">GitHub</a>
