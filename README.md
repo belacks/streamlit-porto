@@ -89,8 +89,8 @@ If you want to use this template for your own portfolio:
 
 ## 👤 About Me / Contact
 
-* **GitHub:** [[Your GitHub Link]](https://github.com/belacks)
-* **LinkedIn:** [[Your LinkedIn Link]](https://www.linkedin.com/in/ali-ashari/)
+* **GitHub:** [[GITHUB]](https://github.com/belacks)
+* **LinkedIn:** [[LinkedIn]](https://www.linkedin.com/in/ali-ashari/)
 * **Email:** aliashari0304@gmail.com
 
 ---
