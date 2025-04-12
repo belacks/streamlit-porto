@@ -1,63 +1,96 @@
-# Portofolio Proyek Muhammad Ali Ashari 📊
+# Ali Ashari's Project Portfolio 📊
 
-Selamat datang di repository aplikasi portofolio pribadi saya! Aplikasi ini dibangun menggunakan Python dan Streamlit untuk menampilkan berbagai proyek yang telah saya kerjakan di bidang Data Science, Machine Learning, dan Analisis Data.
+Welcome to my personal portfolio application repository! This app is built using Python and Streamlit to showcase various projects I've worked on in Data Science, Machine Learning, and Data Analysis.
 
-**➡️ Lihat Aplikasi Langsung (Streamlit Cloud):**
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)]([https://GANTI_DENGAN_URL_STREAMLIT_APP_ANDA.streamlit.app/](https://projectlist.streamlit.app/))
-
+**➡️ View Live Application (Streamlit Cloud):**
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)]([https://YOUR_STREAMLIT_APP_URL_HERE.streamlit.app/](https://projectlist.streamlit.app/))
 
 ---
 
-## ✨ Fitur Utama Aplikasi
+## ✨ Key Features
 
-* Menampilkan daftar proyek yang telah dikerjakan.
-* Untuk setiap proyek, terdapat:
-    * Judul Proyek
-    * Link ke Demo Aplikasi (Streamlit) atau Notebook (Google Colab) jika tersedia.
-    * Penjelasan Detail Proyek meliputi:
-        * Latar Belakang Proyek (Masalah yang Diselesaikan)
-        * Deskripsi Proyek
-        * Metodologi dan Tools yang Digunakan
-        * Deskripsi Tugas Spesifik yang Dilakukan
-        * Manfaat yang Diharapkan dari Proyek
-    * Screenshot contoh kode.
-    * Screenshot contoh hasil proyek (visualisasi, output, dll.).
+* Displays a list of completed projects.
+* For each project, it includes:
+    * Project Title
+    * Link to Demo App (Streamlit) or Notebook (Google Colab) if available.
+    * Detailed Project Explanation including:
+        * Project Background (Problem Solved)
+        * Project Description
+        * Methodology and Tools Used
+        * Specific Tasks Performed
+        * Expected Project Benefits
+    * Screenshot of sample code.
+    * Screenshot of sample project results (visualization, output, etc.).
 
-## 🛠️ Teknologi yang Digunakan
+## 🛠️ Tech Stack
 
-* **Bahasa:** Python 3.x
-* **Framework Aplikasi Web:** Streamlit
-* **Library Utama Lainnya:** Pandas (implisit oleh Streamlit), Pillow (untuk gambar)
+* **Language:** Python 3.x
+* **Web App Framework:** Streamlit
+* **Other Key Libraries:** Pandas (implicitly used by Streamlit), Pillow (for images)
 * **Deployment:** Streamlit Community Cloud
 
-## 🚀 Menjalankan Secara Lokal
+## 🚀 Running Locally
 
-Jika Anda ingin menjalankan aplikasi ini di komputer lokal Anda:
+If you want to run this application on your local machine:
 
 1.  **Clone Repository:**
     ```bash
-    git clone [https://github.com/username-anda/nama-repo-anda.git](https://github.com/username-anda/nama-repo-anda.git)
-    cd nama-repo-anda
+    git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+    cd your-repo-name
     ```
-2.  **Buat Virtual Environment (Direkomendasikan):**
+2.  **Create Virtual Environment (Recommended):**
     ```bash
     python -m venv venv
-    # Aktivasi (Windows):
+    # Activate (Windows):
     # venv\Scripts\activate
-    # Aktivasi (Mac/Linux):
+    # Activate (Mac/Linux):
     # source venv/bin/activate
     ```
 3.  **Install Dependencies:**
     ```bash
     pip install -r requirements.txt
     ```
-4.  **Siapkan Folder dan Gambar:**
-    * Buat folder bernama `images` di dalam direktori utama proyek.
-    * Tempatkan semua file gambar (screenshot kode dan hasil) untuk proyek Anda di dalam folder `images` ini. Pastikan nama file gambar sesuai dengan path yang Anda definisikan dalam list `projects` di `app.py`.
-5.  **Jalankan Aplikasi Streamlit:**
+4.  **Prepare Folder and Images:**
+    * Create a folder named `images` in the project's root directory.
+    * Place all image files (code and result screenshots) for your projects inside this `images` folder. Ensure the image file names match the paths defined in the `projects` list within `app.py`.
+5.  **Run Streamlit Application:**
     ```bash
     streamlit run app.py
     ```
-    Aplikasi akan terbuka secara otomatis di browser default Anda.
+    The application will automatically open in your default web browser.
 
-## 📁 Struktur File
+## 📁 File Structure
+.
+├── app.py              # Main Streamlit application code
+├── requirements.txt    # Required Python libraries
+├── images/             # Folder to store all project images
+│   ├── project1_code.png
+│   ├── project1_result.png
+│   └── ...             # Other project images
+└── README.md           # This file
+
+## ☁️ Deployment
+
+This application is deployed using [Streamlit Community Cloud](https://streamlit.io/cloud). Simply connect this GitHub repository to your Streamlit Cloud account. Ensure the `requirements.txt` file is correct.
+
+## 🔧 Customization (For Your Own Portfolio)
+
+If you want to use this template for your own portfolio:
+
+1.  **Fork/Clone this repository.**
+2.  **Edit `app.py`:**
+    * Change `[Your Name]` in `st.set_page_config` and `st.title`.
+    * **Modify the `projects` list**: Remove the sample project data and add a dictionary for each of your projects. Fill in all the keys (`title`, `demo_link`, `colab_link`, `code_image_path`, `result_image_path`, `background`, `description`, `methodology_tools`, `tasks`, `benefits`) with your actual project details.
+    * Adjust the introduction and footer text if needed.
+3.  **Update `images/` Folder:** Delete the sample images and add your project's code and result screenshots. Ensure the image paths in `app.py` match the filenames in this folder.
+4.  **Update `README.md`:** Don't forget to replace placeholders like `[Your Name]`, the Streamlit Cloud URL, your GitHub username/repo name, and your contact links.
+5.  **Deploy to Streamlit Cloud!**
+
+
+## 👤 About Me / Contact
+
+* **GitHub:** [[Your GitHub Link]](https://github.com/belacks)
+* **LinkedIn:** [[Your LinkedIn Link]](https://www.linkedin.com/in/ali-ashari/)
+* **Email:** aliashari0304@gmail.com
+
+---
