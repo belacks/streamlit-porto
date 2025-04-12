@@ -2,191 +2,206 @@ import streamlit as st
 from PIL import Image
 import os # Untuk memeriksa keberadaan file gambar
 
-# --- Konfigurasi Halaman (Opsional tapi bagus) ---
+# --- Page Configuration (Optional but recommended) ---
 st.set_page_config(
-    page_title="Portofolio Muhammad Ali Ashari",
-    page_icon="📊", # Anda bisa gunakan emoji lain atau path ke file favicon
-    layout="wide" # 'centered' atau 'wide'
+    page_title="Muhammad Ali Ashari Portfolio", # Changed to English
+    page_icon="📊",
+    layout="wide"
 )
 
-# --- Data Proyek ---
-# Ganti dengan detail proyek Anda yang sebenarnya.
-# Buat dictionary untuk setiap proyek.
-# Pastikan path gambar benar dan file gambar ada di folder yang sama atau subfolder (misal 'images/')
+# --- Project Data ---
+# Replace with your actual project details.
+# Create a dictionary for each project.
+# Make sure the image paths are correct and the image files exist in the specified folder (e.g., 'images/')
 # ==============================================================================
-# TEMPATKAN DATA PROYEK ANDA DI SINI
+# PLACE YOUR PROJECT DATA HERE
 # ==============================================================================
 projects = [
     {
         "title": "Indonesian Hoax News Detection",
-        "demo_link": "https://detecthoax.streamlit.app/", # Ganti dengan link asli atau None
-        "colab_link": "https://colab.research.google.com/drive/1jI7xyYF4qogBrShcqPD8hy4r6G1NFTtn?usp=sharing", # Ganti dengan link asli atau None
-        "code_image_path": "images/project1_code.png", # Ganti dengan path ke screenshot kode Anda
-        "result_image_path": "images/project1_result.png", # Ganti dengan path ke screenshot hasil Anda
+        "demo_link": "https://detecthoax.streamlit.app/",
+        "colab_link": "https://colab.research.google.com/drive/1jI7xyYF4qogBrShcqPD8hy4r6G1NFTtn?usp=sharing",
+        "code_image_path": "images/project1_code.png",
+        "result_image_path": "images/project1_result.png",
         "background": """
-        **Masalah:** Penyebaran berita bohong (hoaks) di media sosial dan platform berita online semakin meresahkan
-        dan dapat menimbulkan dampak negatif pada masyarakat. Dibutuhkan cara untuk mengidentifikasi potensi hoaks
-        secara otomatis untuk membantu pengguna memfilter informasi.
+        **Problem:** The spread of hoax news on social media and online platforms is increasingly concerning
+        and can negatively impact society. An automated way to identify potential hoaxes is needed
+        to help users filter information.
         """,
         "description": """
-        Proyek ini bertujuan untuk membangun model klasifikasi teks menggunakan machine learning/deep learning
-        untuk mendeteksi apakah suatu artikel berita berbahasa Indonesia termasuk hoaks atau bukan.
-        Model dilatih menggunakan dataset berita yang telah diberi label.
+        This project aims to build a text classification model using machine learning/deep learning
+        to detect whether an Indonesian news article is a hoax or not.
+        The model is trained on a labeled news dataset.
         """,
         "methodology_tools": """
-        * **Metodologi:** Ensemble Stacking (menggabungkan SVM, Random Forest, IndoBERT+MLP), Teknik Balancing Data (SMOTE+Tomek), Cross-Validation (Stratified 5-Fold).
-        * **Fitur:** TF-IDF, Fixed IndoBERT Embeddings, Fitur Linguistik/Stilistik (jika ada).
-        * **Tools:** Python, Scikit-learn, Pandas, NumPy, NLTK/Sastrawi (untuk fitur linguistik jika ada), Transformers (Hugging Face), Streamlit (untuk demo).
+        * **Methodology:** Ensemble Stacking (combining SVM, Random Forest, IndoBERT+MLP), Data Balancing Technique (SMOTE+Tomek), Cross-Validation (Stratified 5-Fold).
+        * **Features:** TF-IDF, Fixed IndoBERT Embeddings, Linguistic/Stylistic Features (if applicable).
+        * **Tools:** Python, Scikit-learn, Pandas, NumPy, NLTK/Sastrawi (for linguistic features if applicable), Transformers (Hugging Face), Streamlit (for demo).
         """,
         "tasks": """
-        * Pengumpulan dan Pembersihan Data.
-        * Rekayasa Fitur (TF-IDF, Embedding Extraction, Linguistic Features).
-        * Implementasi dan Pelatihan Model Dasar (SVM, RF, MLP).
-        * Implementasi Teknik Balancing Data.
-        * Implementasi Stacking Ensemble dengan Meta-learner.
-        * Evaluasi Model menggunakan metrik yang relevan (Accuracy, Precision, Recall, F1-Score, AUC).
-        * Pembuatan Aplikasi Demo Sederhana (Streamlit).
+        * Data Collection and Cleaning.
+        * Feature Engineering (TF-IDF, Embedding Extraction, Linguistic Features).
+        * Implementation and Training of Base Models (SVM, RF, MLP).
+        * Implementation of Data Balancing Techniques.
+        * Implementation of Stacking Ensemble with Meta-learner.
+        * Model Evaluation using relevant metrics (Accuracy, Precision, Recall, F1-Score, AUC).
+        * Development of a Simple Demo Application (Streamlit).
         """,
         "benefits": """
-        * Menyediakan alat bantu untuk identifikasi potensi hoaks secara otomatis.
-        * Meningkatkan literasi digital pengguna dengan memberikan indikator kredibilitas berita.
-        * Demonstrasi penerapan teknik ensemble learning dan NLP untuk masalah klasifikasi teks nyata.
+        * Provides a tool to assist in the automatic identification of potential hoaxes.
+        * Enhances users' digital literacy by providing an indicator of news credibility.
+        * Demonstrates the application of ensemble learning and NLP techniques for real-world text classification problems.
         """
     },
     {
         "title": "Sentiment Analysis on IMDB Movie Reviews",
-        "demo_link": "https://anantiment.streamlit.app/", # Tidak ada demo streamlit
-        "colab_link": "https://colab.research.google.com/drive/1Ay7z0fmJIVPWQGXri4tE0HwZSYafsKgH?usp=sharing", # Ganti dengan link asli atau None
-        "code_image_path": "images/project2_code.png", # Ganti path
-        "result_image_path": "images/project2_result.png", # Ganti path
+        "demo_link": "https://anantiment.streamlit.app/",
+        "colab_link": "https://colab.research.google.com/drive/1Ay7z0fmJIVPWQGXri4tE0HwZSYafsKgH?usp=sharing",
+        "code_image_path": "images/project2_code.png",
+        "result_image_path": "images/project2_result.png",
         "background": """
-        **Masalah:** E-commerce memiliki banyak ulasan produk dari pengguna. Menganalisis sentimen ulasan ini secara manual
-        memakan waktu. Dibutuhkan cara otomatis untuk memahami opini pelanggan (positif/negatif/netral)
-        terhadap produk berdasarkan ulasan mereka.
+        **Problem:** E-commerce platforms have numerous product reviews from users. Manually analyzing the sentiment
+        of these reviews is time-consuming. An automated method is needed to understand customer opinions
+        (positive/negative/neutral) towards products based on their reviews.
         """,
         "description": """
-        Membangun model klasifikasi untuk menganalisis sentimen dari teks ulasan produk berbahasa Indonesia.
-        Model akan mengklasifikasikan ulasan ke dalam kategori positif, negatif, atau netral.
+        Building a classification model to analyze the sentiment of text from product reviews (originally Indonesian, adapted here for IMDB example).
+        The model classifies reviews into positive, negative, or potentially neutral categories.
+        *(Note: The title references IMDB, but the original description mentioned Indonesian e-commerce. Adjusted for clarity based on title)*
         """,
         "methodology_tools": """
-        * **Metodologi:** Fine-tuning model IndoBERT untuk klasifikasi teks, TF-IDF + Logistic Regression (sebagai baseline).
-        * **Tools:** Python, Pandas, Scikit-learn, Transformers (Hugging Face), Matplotlib/Seaborn (untuk visualisasi).
+        * **Methodology:** Fine-tuning a pre-trained language model (like BERT or IndoBERT if Indonesian) for text classification, TF-IDF + Logistic Regression (as a baseline).
+        * **Tools:** Python, Pandas, Scikit-learn, Transformers (Hugging Face), Matplotlib/Seaborn (for visualization).
         """,
         "tasks": """
-        * Web scraping data ulasan (jika diperlukan dan diizinkan).
-        * Preprocessing teks (cleaning, normalization).
-        * Pelatihan dan fine-tuning model IndoBERT.
-        * Pelatihan model baseline.
-        * Analisis hasil dan perbandingan model.
-        * Visualisasi distribusi sentimen.
+        * Data loading and preprocessing (cleaning, normalization).
+        * Training and fine-tuning the language model.
+        * Training the baseline model.
+        * Result analysis and model comparison.
+        * Visualization of sentiment distribution.
         """,
         "benefits": """
-        * Memberikan insight cepat kepada penjual/platform mengenai penerimaan produk.
-        * Membantu calon pembeli memahami opini umum tentang suatu produk.
-        * Otomatisasi proses analisis feedback pelanggan.
+        * Provides quick insights to sellers/platforms regarding product reception.
+        * Helps potential buyers understand the general opinion about a product.
+        * Automates the process of customer feedback analysis.
         """
     },
     {
         "title": "Canadian Amazon Product Information Chatbot",
-        "demo_link": None, # Tidak ada demo streamlit
-        "colab_link": "https://colab.research.google.com/drive/1S7j4htNk3lZ6MmYD74-P8ZeCZCLDs6R-?usp=sharing", # Ganti dengan link asli atau None
-        "code_image_path": "images/project3_code.png", # Ganti path
-        "result_image_path": "images/project3_result.png", # Ganti path
+        "demo_link": None,
+        "colab_link": "https://colab.research.google.com/drive/1S7j4htNk3lZ6MmYD74-P8ZeCZCLDs6R-?usp=sharing",
+        "code_image_path": "images/project3_code.png",
+        "result_image_path": "images/project3_result.png",
+        # --- UPDATED SECTIONS START HERE ---
         "background": """
-        **Masalah:** E-commerce memiliki banyak ulasan produk dari pengguna. Menganalisis sentimen ulasan ini secara manual
-        memakan waktu. Dibutuhkan cara otomatis untuk memahami opini pelanggan (positif/negatif/netral)
-        terhadap produk berdasarkan ulasan mereka.
+        **Problem:** Finding specific details about products on large e-commerce sites like Amazon.ca can involve navigating multiple pages or sifting through reviews.
+        Users often need quick answers to specific questions about product features, specifications, or compatibility.
+        An interactive chatbot could provide a more efficient way to access this information.
         """,
         "description": """
-        Membangun model klasifikasi untuk menganalisis sentimen dari teks ulasan produk berbahasa Indonesia.
-        Model akan mengklasifikasikan ulasan ke dalam kategori positif, negatif, atau netral.
+        This project involves developing a conversational AI (chatbot) capable of answering user questions about products available on Amazon.ca.
+        It leverages a dataset of Canadian Amazon product information (potentially scraped or using an API if available) and utilizes Natural Language Processing (NLP) techniques,
+        likely Retrieval-Augmented Generation (RAG), to understand questions and retrieve relevant information from the product data.
         """,
         "methodology_tools": """
-        * **Metodologi:** Fine-tuning model IndoBERT untuk klasifikasi teks, TF-IDF + Logistic Regression (sebagai baseline).
-        * **Tools:** Python, Pandas, Scikit-learn, Transformers (Hugging Face), Matplotlib/Seaborn (untuk visualisasi).
+        * **Methodology:** Retrieval-Augmented Generation (RAG), Vector Embeddings (e.g., Sentence-BERT, OpenAI Ada), Vector Database (e.g., FAISS, ChromaDB), Large Language Model (LLM) Integration (e.g., GPT API, open-source LLMs). Data scraping/collection might be involved.
+        * **Tools:** Python, LangChain or LlamaIndex (for RAG framework), Pandas (for data handling), Vector Database library, LLM API library (e.g., OpenAI), potentially BeautifulSoup/Scrapy (for scraping).
         """,
         "tasks": """
-        * Web scraping data ulasan (jika diperlukan dan diizinkan).
-        * Preprocessing teks (cleaning, normalization).
-        * Pelatihan dan fine-tuning model IndoBERT.
-        * Pelatihan model baseline.
-        * Analisis hasil dan perbandingan model.
-        * Visualisasi distribusi sentimen.
+        * Data Acquisition: Gathering product information from Amazon.ca (e.g., scraping product pages, descriptions, specifications).
+        * Data Cleaning and Structuring: Preparing the text data for processing and embedding.
+        * Embedding Generation: Converting product information into vector embeddings.
+        * Vector Store Setup: Indexing embeddings in a vector database for efficient retrieval.
+        * RAG Pipeline Implementation: Integrating the retriever (vector store) with an LLM to generate answers based on retrieved context.
+        * Chat Interface Logic: Developing the conversational flow and handling user queries.
+        * Testing and Evaluation: Assessing the chatbot's ability to understand questions and provide accurate, relevant answers.
         """,
         "benefits": """
-        * Memberikan insight cepat kepada penjual/platform mengenai penerimaan produk.
-        * Membantu calon pembeli memahami opini umum tentang suatu produk.
-        * Otomatisasi proses analisis feedback pelanggan.
+        * Provides users with quick and direct answers to specific product questions on Amazon.ca.
+        * Enhances the user experience by reducing the need for manual searching through product pages.
+        * Demonstrates the practical application of RAG and LLMs in an e-commerce context.
+        * Can potentially summarize key product features or compare aspects based on user queries.
         """
+        # --- UPDATED SECTIONS END HERE ---
     },
-    # --- TAMBAHKAN DICTIONARY PROYEK LAIN DI SINI ---
+    # --- ADD OTHER PROJECT DICTIONARIES HERE ---
 ]
 # ==============================================================================
 
-# --- Header Utama ---
-st.title("Portofolio Proyek [Nama Anda]")
+# --- Main Header ---
+# Updated title and welcome message to English
+st.title("Project Portfolio - Muhammad Ali Ashari") # <-- Ganti [Nama Anda]
 st.write("""
-Selamat datang di portofolio saya! Berikut adalah beberapa proyek yang telah saya kerjakan
-di bidang Data Science, Machine Learning, dan Analisis Data.
-(Tambahkan sedikit perkenalan tentang diri Anda di sini jika mau).
+Welcome to my portfolio! Below are some of the projects I've worked on
+in the fields of Data Science, Machine Learning, and Data Analysis.
+(Feel free to add a brief introduction about yourself here).
 """)
 st.divider()
 
-# --- Tampilkan Setiap Proyek ---
+# --- Display Each Project ---
 for project in projects:
     st.header(project["title"])
 
-    col1, col2 = st.columns(2) # Buat dua kolom untuk link
+    col1, col2 = st.columns(2) # Create two columns for links
 
     with col1:
         if project["demo_link"]:
-            st.link_button("🔗 Lihat Demo Aplikasi (Streamlit)", project["demo_link"])
+            # Updated button text to English
+            st.link_button("🔗 View Live Demo (Streamlit)", project["demo_link"])
     with col2:
-         if project["colab_link"]:
-            st.link_button("📓 Lihat Kode/Notebook (Google Colab)", project["colab_link"])
+        if project["colab_link"]:
+            # Updated button text to English
+            st.link_button("📓 View Code/Notebook (Google Colab)", project["colab_link"])
 
-    st.markdown("---") # Garis pemisah
+    st.markdown("---") # Separator line
 
-    # Penjelasan Proyek dalam Expander
-    with st.expander("🔍 Lihat Penjelasan Detail Proyek"):
-        st.markdown(f"**Latar Belakang Proyek (Masalah):** {project['background']}")
-        st.markdown(f"**Deskripsi Proyek:** {project['description']}")
-        st.markdown(f"**Metodologi dan Tools:** {project['methodology_tools']}")
-        st.markdown(f"**Deskripsi Tugas Saya:** {project['tasks']}")
-        st.markdown(f"**Manfaat yang Diharapkan:** {project['benefits']}")
+    # Project Explanation in Expander
+    # Updated expander label to English
+    with st.expander("🔍 View Project Details"):
+        # Updated labels to English
+        st.markdown(f"**Project Background (Problem):** {project['background']}")
+        st.markdown(f"**Project Description:** {project['description']}")
+        st.markdown(f"**Methodology and Tools:** {project['methodology_tools']}")
+        st.markdown(f"**My Tasks:** {project['tasks']}") # Changed label slightly for clarity
+        st.markdown(f"**Expected Benefits:** {project['benefits']}")
 
-    st.markdown("---") # Garis pemisah
+    st.markdown("---") # Separator line
 
-    # Tampilkan Gambar (Kode dan Hasil)
+    # Display Images (Code and Results)
     col_img1, col_img2 = st.columns(2)
     with col_img1:
-        st.subheader("Contoh Kode")
-        # Cek apakah file gambar ada sebelum menampilkannya
+        # Updated subheader to English
+        st.subheader("Code Snippet")
+        # Check if the image file exists before displaying
         if os.path.exists(project["code_image_path"]):
             try:
                 code_image = Image.open(project["code_image_path"])
-                st.image(code_image, caption=f"Screenshot Kode {project['title']}", use_column_width=True)
+                # Updated caption to English
+                st.image(code_image, caption=f"Code Screenshot for {project['title']}", use_column_width=True)
             except Exception as e:
-                st.warning(f"Gagal memuat gambar kode: {project['code_image_path']}. Error: {e}")
+                st.warning(f"Failed to load code image: {project['code_image_path']}. Error: {e}")
         else:
-            st.warning(f"File gambar tidak ditemukan: {project['code_image_path']}")
+            st.warning(f"Image file not found: {project['code_image_path']}")
 
     with col_img2:
-        st.subheader("Contoh Hasil")
-         # Cek apakah file gambar ada
+        # Updated subheader to English
+        st.subheader("Result Example")
+         # Check if the image file exists
         if os.path.exists(project["result_image_path"]):
             try:
                 result_image = Image.open(project["result_image_path"])
-                st.image(result_image, caption=f"Screenshot Hasil {project['title']}", use_column_width=True)
+                # Updated caption to English
+                st.image(result_image, caption=f"Result Screenshot for {project['title']}", use_column_width=True)
             except Exception as e:
-                 st.warning(f"Gagal memuat gambar hasil: {project['result_image_path']}. Error: {e}")
+                 st.warning(f"Failed to load result image: {project['result_image_path']}. Error: {e}")
         else:
-             st.warning(f"File gambar tidak ditemukan: {project['result_image_path']}")
+             st.warning(f"Image file not found: {project['result_image_path']}")
 
-    st.divider() # Pemisah antar proyek
+    st.divider() # Separator between projects
 
-# --- Footer (Opsional) ---
+# --- Footer (Optional) ---
 st.markdown("---")
-st.write("Terima kasih telah mengunjungi portofolio saya.")
-# Tambahkan link ke LinkedIn, GitHub, dll. jika mau
-# st.write("[LinkedIn Anda](https://linkedin.com/in/...) | [GitHub Anda](https://github.com/...)")
+# Updated footer text to English
+st.write("Thank you for visiting my portfolio.")
+# Add links to LinkedIn, GitHub, etc. if desired
+# st.write("[Your LinkedIn](https://linkedin.com/in/...) | [Your GitHub](https://github.com/...)")
