@@ -425,11 +425,12 @@ def education_section():
     st.markdown('<div class="highlight-box">', unsafe_allow_html=True)
     st.markdown("""
     ### Telkom University
-    **B.Sc. Data Science** | 2022 - 2026 (Expected
-    
-    - GPA: 3.62/4.0
+    **B.Sc. Data Science** | 2022 - 2026 (Expected)
+     GPA: 3.62/4.00
+     
     - Relevant Coursework: Machine Learning, Statistical Learning, Big Data Analytics, Data Mining, Deep Learning, Artifical Intelligence
-    - Academic Projects: Developed multiple machine learning models for real-world problem solving
+    - Academic Projects: Developed and optimized a hybrid neural network architecture using CNN, RNN, and MLP, achieving significant improvements in audio
+noise reduction and enhanced overall sound quality.
     """)
     st.markdown('</div>', unsafe_allow_html=True)
 
