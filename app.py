@@ -17,7 +17,7 @@ def load_css():
         padding: 2rem;
     }
     .project-card {
-        background-color: #f8f9fa;
+        background-color: #1f242e;
         padding: 1.5rem;
         border-radius: 10px;
         margin-bottom: 1.5rem;
@@ -480,7 +480,7 @@ def main():
             color: #f0f0f0;
         }
         .project-card {
-            background-color: #1e1e1e;
+            background-color: #1f242e;
             border-left: 5px solid #64b5f6;
         }
         .highlight-box {
