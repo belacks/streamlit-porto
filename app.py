@@ -229,8 +229,8 @@ projects = [
       "demo_link": "http://<YOUR_VM_STATIC_IP>:8080", // Atau None jika tidak live, atau link video demo
       "github_link": "https://github.com/belacks/news-verif-agent", // Ganti dengan URL repo Anda yang benar
       "colab_link": null, // Atau link ke Colab spesifik jika ada bagian di sana
-      "code_image_path": "images/news_agent_code.png", // Sesuaikan path gambar Anda
-      "result_image_path": "images/news_agent_result.png", // Sesuaikan path gambar Anda
+      "code_image_path": "images/project4_code.png", // Sesuaikan path gambar Anda
+      "result_image_path": "images/project4_result.png", // Sesuaikan path gambar Anda
       "background": """
       **Problem:** The rapid spread of misinformation and hoaxes online, particularly within specific regions like Indonesia, presents a significant challenge.
       Manually verifying news claims by cross-referencing multiple trusted sources is time-consuming and difficult for the average user.
