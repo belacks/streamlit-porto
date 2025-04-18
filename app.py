@@ -228,7 +228,7 @@ projects = [
         "title": "Indonesian News Claim Verification Agent",
       "demo_link": "http://34.142.222.255:8080", # Atau None jika tidak live, atau link video demo
       "github_link": "https://github.com/belacks/news-verif-agent", # Ganti dengan URL repo Anda yang benar
-      "colab_link": null, # Atau link ke Colab spesifik jika ada bagian di sana
+      "colab_link": None, # Atau link ke Colab spesifik jika ada bagian di sana
       "code_image_path": "images/project4_code.png", # Sesuaikan path gambar Anda
       "result_image_path": "images/project4_result.png", # Sesuaikan path gambar Anda
       "background": """
