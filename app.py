@@ -379,13 +379,8 @@ def about_section():
     st.header("About Me")
     
     st.markdown("""
-    I am a Data Science undergraduate student at Telkom University with exceptional professional skills in leadership, 
-    project management, and strategic communication. I've successfully balanced rigorous academics with significant 
-    organizational responsibilities, including leading the most significant e-sports and sports event in my department.
-
-    My role in the Data Science Student Association has refined my abilities in coordinating cross-functional initiatives 
-    and streamlining operations. These experiences have strengthened my expertise in event coordination and logistics management, 
-    establishing me as a proactive problem solver who thrives in fast-paced, collaborative environments.
+I'm a Data Science student passionate about leveraging data and AI to build impactful solutions. I thrive on tackling complex challenges, from understanding human language with NLP to forecasting real-world trends with time series analysis.
+My experience extends beyond academics, having led significant student organization initiatives and managed event logistics, honing my leadership, project management, and collaborative skills. I'm constantly exploring new techniques in ML, DL, and cloud technologies.
     """)
 
 def skills_section():
