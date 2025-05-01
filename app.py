@@ -140,6 +140,58 @@ projects = [
       """
     },
     {
+        "title": "Jabodetabek Food Price Forecasting [Work In Progress - v0.1]",
+        "demo_link": "https://prediksipangan.streamlit.app/", # <<<--- REPLACE with your actual deployed Streamlit link (or "Deployment Planned")
+        "colab_link": "https://colab.research.google.com/drive/1WHgKAEDsI8eeOmamdgDeNu0hD4LNKQtf?usp=sharing", # <<<--- REPLACE with your actual Colab link
+        "code_image_path": "images/food_price_code_placeholder.png", # <<<--- REPLACE with path to a relevant code snippet image
+        "result_image_path": "images/food_price_result_plot.png", # <<<--- REPLACE with path to your evaluation plot image (like the one you showed)
+        "background": """
+        **Problem:** Food price stability is crucial for economic well-being and inflation control, especially in major urban centers. The Jabodetabek metropolitan area (Jakarta, Bogor, Depok, Tangerang, Bekasi) is Indonesia's primary economic hub, and understanding its food price dynamics is vital for consumers, businesses, and policymakers. Volatility and unpredictable price changes require tools for better monitoring and anticipation.
+    
+        **NOTE:** This project is currently a work in progress (v0.1). The current version focuses on building and evaluating individual forecasting models. Deployment and potential enhancements (like multi-step forecasting) are planned future steps.
+        """,
+        "description": """
+        This project focuses on developing a system to analyze and forecast daily prices of key food commodities across selected traditional markets in the Jabodetabek region.
+        This initial version implements **individual Univariate LSTM (Long Short-Term Memory) deep learning models** for *each specific commodity-location pair*.
+        The goal is to provide near-term price predictions based on historical trends derived from publicly available data.
+        """,
+        "methodology_tools": """
+        *   **Methodology:** Univariate Time Series Forecasting, Deep Learning (LSTM), Extensive Data Cleaning & Preprocessing (Handling inconsistencies, missing values '-', comma separators), Data Reshaping (Wide Format Transformation), Data Imputation (Forward Fill & Backward Fill for missing dates/values), Feature Scaling (MinMaxScaler), Time Series Splitting (Train/Validation/Test - Chronological), Iterative Model Training & Evaluation (per time series).
+        *   **Tools:** Python, Pandas, NumPy, Scikit-learn (MinMaxScaler, metrics), TensorFlow/Keras (LSTM model building, training, evaluation), Plotly (for visualization), Joblib (for saving/loading scalers), Gdown (for accessing models/scalers from Google Drive during deployment), Streamlit (Target platform for deployment).
+        """,
+        "tasks": """
+        *   **Data Acquisition:** Collecting multi-year daily price data for multiple strategic food commodities across 5 key cities/regencies in Jabodetabek from PIHPS Nasional.
+        *   **Data Cleaning & Preprocessing:** Handling diverse data formats, inconsistent headers, missing value markers ('-'), comma separators in numbers, ensuring daily frequency, and aligning time series across locations.
+        *   **Data Imputation:** Implementing ffill and bfill strategies to handle missing data points after alignment.
+        *   **Data Reshaping:** Transforming data from raw format to a 'wide' format suitable for individual time series processing.
+        *   **Iterative Univariate Model Training:** Developing a pipeline to automatically train, evaluate, and save separate LSTM models and scalers for each individual commodity-location time series (~155 models trained in this version).
+        *   **LSTM Implementation:** Building and compiling a standard LSTM architecture.
+        *   **Model Evaluation:** Calculating MAE, RMSE, and MAPE metrics for each model on a held-out test set.
+        *   **Model & Scaler Persistence:** Saving trained models (.keras) and scalers (.gz) for later use.
+        *   **Streamlit App Development:** *[In Progress/Planned]* Designing and building the user interface and backend logic for deployment.
+        """,
+        "benefits": """
+        *   Demonstrates the application of deep learning (LSTM) for complex, real-world time series forecasting problems at scale (handling hundreds of series).
+        *   Highlights advanced data wrangling and preprocessing techniques necessary for messy, publicly sourced time series data.
+        *   Provides a foundational system for monitoring price trends of essential food items in a major metropolitan area.
+        *   Showcases an automated pipeline for training and evaluating multiple time series models.
+        *   Establishes a base for future work on more advanced forecasting techniques (e.g., multivariate, multi-output models) or deployment features.
+        """,
+        "dataset_source": """
+        **Dataset:** Pusat Informasi Harga Pangan Strategis (PIHPS) Nasional - Processed Data
+    
+        **Description:** Daily average prices for ~31 strategic food commodities collected from selected traditional markets in 5 key locations within the Jabodetabek region (Jakarta Pusat, Kota Bogor, Kota Depok, Kota Bekasi, Kota Tangerang). Raw data was downloaded in yearly chunks per location.
+    
+        **Time Range Used:** January 2018 - April 2025 (Note: Data for 2017 was found to be largely unavailable).
+    
+        **Size:** The final processed 'wide' dataset (`df_wide_imputed`) contains approximately 2300+ daily entries (rows) and ~155 columns (one for each unique Location-Commodity pair), resulting from cleaning and imputing the original source data.
+    
+        **Features (Processed Wide Format):** DatetimeIndex (Daily), Columns representing 'Location_CommodityName', Values are imputed daily prices in Indonesian Rupiah (Rp).
+    
+        **Source:** [PIHPS Nasional - Bank Indonesia](https://hargapangan.id/)
+        """
+    },
+    {
         "title": "Indonesian Hoax News Detection",
         "demo_link": "https://detecthoax.streamlit.app/",
         "colab_link": "https://colab.research.google.com/drive/1jI7xyYF4qogBrShcqPD8hy4r6G1NFTtn?usp=sharing",
