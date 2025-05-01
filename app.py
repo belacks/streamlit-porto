@@ -141,10 +141,10 @@ projects = [
     },
     {
         "title": "Jabodetabek Food Price Forecasting [Work In Progress - v0.1]",
-        "demo_link": "https://prediksipangan.streamlit.app/", # <<<--- REPLACE with your actual deployed Streamlit link (or "Deployment Planned")
-        "colab_link": "https://colab.research.google.com/drive/1WHgKAEDsI8eeOmamdgDeNu0hD4LNKQtf?usp=sharing", # <<<--- REPLACE with your actual Colab link
-        "code_image_path": "images/food_price_code_placeholder.png", # <<<--- REPLACE with path to a relevant code snippet image
-        "result_image_path": "images/food_price_result_plot.png", # <<<--- REPLACE with path to your evaluation plot image (like the one you showed)
+        "demo_link": "https://prediksipangan.streamlit.app/", # 
+        "colab_link": "https://colab.research.google.com/drive/1WHgKAEDsI8eeOmamdgDeNu0hD4LNKQtf?usp=sharing", # 
+        "code_image_path": "images/project5_code.png", # 
+        "result_image_path": "images/project5_result.png", # 
         "background": """
         **Problem:** Food price stability is crucial for economic well-being and inflation control, especially in major urban centers. The Jabodetabek metropolitan area (Jakarta, Bogor, Depok, Tangerang, Bekasi) is Indonesia's primary economic hub, and understanding its food price dynamics is vital for consumers, businesses, and policymakers. Volatility and unpredictable price changes require tools for better monitoring and anticipation.
     
