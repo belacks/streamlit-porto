@@ -379,8 +379,10 @@ def about_section():
     st.header("About Me")
     
     st.markdown("""
-I'm a Data Science student passionate about leveraging data and AI to build impactful solutions. I thrive on tackling complex challenges, from understanding human language with NLP to forecasting real-world trends with time series analysis.
-My experience extends beyond academics, having led significant student organization initiatives and managed event logistics, honing my leadership, project management, and collaborative skills. I'm constantly exploring new techniques in ML, DL, and cloud technologies.
+        I'm a Data Science student passionate about leveraging data and AI to build impactful solutions. 
+        I thrive on tackling complex challenges, from understanding human language with NLP to forecasting real-world trends with time series analysis.
+        My experience extends beyond academics, having led significant student organization initiatives and managed event logistics, honing my leadership, project management, and collaborative skills. 
+        I'm constantly exploring new techniques in ML, DL, and cloud technologies.
     """)
 
 def skills_section():
