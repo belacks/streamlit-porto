@@ -536,7 +536,7 @@ def education_section():
     st.markdown('</div>', unsafe_allow_html=True)
 
 def contact_section():
-    """Display contact section"""
+    """Menampilkan bagian kontak dan menangani pengiriman email."""
     
     st.header("Contact Me")
     
@@ -545,7 +545,7 @@ def contact_section():
     with col1:
         st.subheader("Contact Information")
         st.markdown("""
-        - 📧 **Email:** aliashari0304@gmail.com
+        - 📧 **Email:** aliashari0304@gmail.com 
         - 📱 **Phone:** +62 851-5755-8843
         - 📍 **Location:** Bandung, Indonesia
         
@@ -554,13 +554,98 @@ def contact_section():
     
     with col2:
         st.subheader("Send a Message")
-        name = st.text_input("Name")
-        email = st.text_input("Email")
-        message = st.text_area("Message")
-        submit_button = st.button("Send Message", type="primary")
-        
-        if submit_button:
-            st.success("Thank you for your message! I'll get back to you soon.")
+        # Menggunakan st.form untuk mengumpulkan semua input sebelum submit
+        with st.form(key="contact_form", clear_on_submit=True):
+            user_name = st.text_input("Your Name", key="user_name")
+            user_email = st.text_input("Your Email", key="user_email")
+            message_subject_from_user = st.text_input("Subject", key="message_subject") # Opsional, bisa Anda tambahkan
+            message_body = st.text_area("Message", key="message_body")
+            
+            submit_button = st.form_submit_button("Send Message", type="primary")
+
+            if submit_button:
+                if not user_name or not user_email or not message_body:
+                    st.warning("⚠️ Please fill in all required fields (Name, Your Email, Message).")
+                elif "@" not in user_email or "." not in user_email: # Validasi email sederhana
+                    st.warning("⚠️ Please enter a valid email address.")
+                else:
+                    try:
+                        # --- Mengambil Kredensial ---
+                        # Coba ambil dari Streamlit Secrets (untuk deployment)
+                        try:
+                            SENDER_EMAIL = st.secrets["EMAIL_ADDRESS"]
+                            SENDER_PASSWORD = st.secrets["EMAIL_PASSWORD"]
+                            SMTP_SERVER_ADDRESS = st.secrets["SMTP_SERVER"]
+                            SMTP_PORT_NUMBER = int(st.secrets["SMTP_PORT"]) # Pastikan port adalah integer
+                            RECEIVER_EMAIL = st.secrets["RECEIVER_EMAIL_ADDRESS"]
+                            using_secrets = True
+                        except (FileNotFoundError, KeyError): 
+                            # Jika gagal (misalnya saat pengembangan lokal tanpa secrets didefinisikan di cloud)
+                            # coba ambil dari environment variables (file .env)
+                            load_dotenv() # Memuat variabel dari .env
+                            SENDER_EMAIL = os.getenv("EMAIL_ADDRESS")
+                            SENDER_PASSWORD = os.getenv("EMAIL_PASSWORD")
+                            SMTP_SERVER_ADDRESS = os.getenv("SMTP_SERVER")
+                            SMTP_PORT_STR = os.getenv("SMTP_PORT")
+                            RECEIVER_EMAIL = os.getenv("RECEIVER_EMAIL_ADDRESS")
+                            using_secrets = False
+
+                            if not all([SENDER_EMAIL, SENDER_PASSWORD, SMTP_SERVER_ADDRESS, SMTP_PORT_STR, RECEIVER_EMAIL]):
+                                st.error("🚨 Konfigurasi email tidak lengkap. Pastikan file .env (lokal) atau Streamlit Secrets (deployment) sudah benar.")
+                                return # Hentikan eksekusi jika konfigurasi tidak lengkap
+                            SMTP_PORT_NUMBER = int(SMTP_PORT_STR)
+
+                        # --- Membuat Konten Email ---
+                        email_subject = f"New Portfolio Contact from: {user_name}"
+                        if message_subject_from_user: # Jika pengguna mengisi subjek
+                             email_subject += f" - Subject: {message_subject_from_user}"
+
+                        email_body_content = f"""
+                        You have received a new message from your Streamlit Portfolio contact form:
+
+                        Name: {user_name}
+                        Email: {user_email}
+                        Subject: {message_subject_from_user if message_subject_from_user else "N/A"}
+
+                        Message:
+                        {message_body}
+                        """
+                        
+                        # Menggunakan f-string untuk header email yang benar
+                        full_email_message = f"From: {SENDER_EMAIL}\nTo: {RECEIVER_EMAIL}\nSubject: {email_subject}\n\n{email_body_content}"
+
+                        # --- Mengirim Email ---
+                        context = ssl.create_default_context() # Membuat konteks SSL default
+                        
+                        if SMTP_PORT_NUMBER == 465: # Umumnya SSL
+                            with smtplib.SMTP_SSL(SMTP_SERVER_ADDRESS, SMTP_PORT_NUMBER, context=context) as server:
+                                server.login(SENDER_EMAIL, SENDER_PASSWORD)
+                                server.sendmail(SENDER_EMAIL, RECEIVER_EMAIL, full_email_message.encode('utf-8'))
+                        elif SMTP_PORT_NUMBER == 587: # Umumnya TLS
+                            with smtplib.SMTP(SMTP_SERVER_ADDRESS, SMTP_PORT_NUMBER) as server:
+                                server.starttls(context=context) # Mengamankan koneksi dengan TLS
+                                server.login(SENDER_EMAIL, SENDER_PASSWORD)
+                                server.sendmail(SENDER_EMAIL, RECEIVER_EMAIL, full_email_message.encode('utf-8'))
+                        else:
+                            st.error(f"🚨 Port SMTP tidak didukung: {SMTP_PORT_NUMBER}. Gunakan 465 (SSL) atau 587 (TLS).")
+                            return
+
+                        st.success("✅ Thank you for your message! It has been sent successfully.")
+                        if not using_secrets:
+                            st.caption("_Email sent using local .env configuration._")
+
+                    except smtplib.SMTPAuthenticationError:
+                        st.error("🚨 SMTP Authentication Error: Username atau password email pengirim salah. Jika menggunakan Gmail, pastikan Anda menggunakan App Password yang benar.")
+                    except smtplib.SMTPServerDisconnected:
+                        st.error("🚨 SMTP Server Disconnected: Gagal terhubung ke server. Cek alamat server dan port.")
+                    except smtplib.SMTPException as e_smtp:
+                        st.error(f"🚨 SMTP Error: {e_smtp}")
+                    except ConnectionRefusedError:
+                        st.error("🚨 Connection Refused: Pastikan server SMTP dan port sudah benar dan tidak diblokir firewall.")
+                    except ssl.SSLError as e_ssl:
+                        st.error(f"🚨 SSL Error: {e_ssl}. Mungkin ada masalah dengan konfigurasi SSL/TLS server.")
+                    except Exception as e:
+                        st.error(f"🚨 An unexpected error occurred: {e}")
 
 # --- Main Function ---
 def main():
