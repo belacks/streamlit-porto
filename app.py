@@ -1,4 +1,7 @@
 import streamlit as st
+from dotenv import load_dotenv
+import smtplib
+import ssl
 from PIL import Image
 import os
 
