@@ -1,0 +1,20 @@
+# Virtual Environment
+.venv/
+venv/
+env_agent/ # Nama-nama umum lainnya, untuk jaga-jaga
+
+# File Environment Variables Lokal
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE/Editor specific
+.vscode/
+.idea/
+
+# File secrets.toml lokal (jika Anda membuatnya untuk tes)
+.streamlit/secrets.toml
