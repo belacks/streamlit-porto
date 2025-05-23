@@ -88,7 +88,7 @@ def load_css():
     """, unsafe_allow_html=True)
 
 # --- Project Data with Added Dataset Sources ---
-    projects = [
+projects = [
         {
             "title": "Indonesian News Claim Verification Agent",
           "demo_link": None, # Atau None jika tidak live, atau link video demo
@@ -501,7 +501,7 @@ def project_section():
     """)
     
     # Display each project in a card-like format
-    for project in enumerate(projects):
+    for i, project in enumerate(projects):
         # Project header with styling
         st.markdown(f"""
         <div class="project-card">
