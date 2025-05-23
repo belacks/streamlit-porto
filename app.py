@@ -88,6 +88,7 @@ def load_css():
     """, unsafe_allow_html=True)
 
 # --- Project Data with Added Dataset Sources ---
+    projects = [
         {
             "title": "Indonesian News Claim Verification Agent",
           "demo_link": None, # Atau None jika tidak live, atau link video demo
