@@ -501,7 +501,7 @@ def project_section():
     """)
     
     # Display each project in a card-like format
-    for i, project in enumerate(projects):
+    for project in enumerate(projects):
         # Project header with styling
         st.markdown(f"""
         <div class="project-card">
