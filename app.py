@@ -88,59 +88,118 @@ def load_css():
     """, unsafe_allow_html=True)
 
 # --- Project Data with Added Dataset Sources ---
-projects = [
-    {
-        "title": "Indonesian News Claim Verification Agent",
-      "demo_link": None, # Atau None jika tidak live, atau link video demo
-      "github_link": "https://github.com/belacks/news-verif-agent", # Ganti dengan URL repo Anda yang benar
-      "colab_link": "https://github.com/belacks/news-verif-agent/blob/master/agent_app.py", # Atau link ke Colab spesifik jika ada bagian di sana
-      "code_image_path": "images/project4_code.png", # Sesuaikan path gambar Anda
-      "result_image_path": "images/project4_result.png", # Sesuaikan path gambar Anda
-      "background": """
-      **Problem:** The rapid spread of misinformation and hoaxes online, particularly within specific regions like Indonesia, presents a significant challenge.
-      Manually verifying news claims by cross-referencing multiple trusted sources is time-consuming and difficult for the average user.
-      An automated assistant could significantly speed up the process of checking claims against reliable news and fact-checking websites.
-      """,
-      "description": """
-      This project features a conversational AI agent designed to assist users in verifying Indonesian news headlines or article URLs.
-      The agent accepts user input, identifies the core claim, and utilizes LangChain agents and tools to perform targeted web searches against a predefined list of trusted Indonesian news portals and fact-checking sites.
-      It leverages Google's Gemini Pro LLM to analyze the findings, synthesize information, and generate a structured verification report, including a classification (Hoax/Valid/Uncertain) and confidence score.
-      """,
-      "methodology_tools": """
-      * **Methodology:** LLM-powered Agent (ReAct framework), Tool Usage (Web Search, URL Scraping), Natural Language Understanding, Information Synthesis.
-      * **Tools:** Python, LangChain, Google Gemini Pro (via `langchain-google-genai` and Vertex AI API), Tavily Search API (for targeted web search), Requests & BeautifulSoup4 (for input URL scraping), Streamlit (for UI), Google Cloud Compute Engine (GCE for hosting), Python Virtual Environments (`venv`).
-      """,
-      "tasks": """
-      * Environment Setup: Configuring a GCE VM, setting up Python virtual environment, installing dependencies.
-      * GCP Authentication: Setting up Service Account permissions (IAM Roles, API Scopes) and authentication methods (ADC/Key File) for Vertex AI API access.
-      * Tool Implementation: Developing LangChain tools for targeted web search (using Tavily wrapper) and initial URL content scraping.
-      * Agent & Prompt Engineering: Designing and implementing a LangChain ReAct agent with detailed prompts to guide its reasoning, tool usage, and interaction with the LLM.
-      * LLM Integration: Integrating the Google Gemini Pro model via the `langchain-google-genai` library.
-      * Web Interface Development: Building an interactive user interface using Streamlit.
-      * Testing & Iteration: Evaluating the agent's performance on various news claims (hoaxes and valid news, titles and URLs) and refining prompts and logic based on results. Troubleshooting authentication and deployment issues.
-      """,
-      "benefits": """
-      * Provides users with a quick way to check Indonesian news claims against a curated list of trusted sources.
-      * Assists in combating the spread of misinformation by leveraging reliable news portals and fact-checking sites.
-      * Demonstrates a practical application of LLMs and LangChain agents for automated research and verification tasks.
-      * Offers a structured summary and confidence assessment, helping users evaluate news credibility more effectively.
-      """,
-      "dataset_source": """
-      **Information Sources:** Live Web Search Results & Scraped Input URL Content
-    
-      **Description:** Unlike projects relying on static datasets, this agent gathers information dynamically based on user input. It uses:
-      1.  **Targeted Web Search:** Employs the Tavily Search API to query specific, predefined Indonesian domains known for credible news or fact-checking.
-      2.  **Input URL Scraping:** Attempts to scrape the main text content directly from the news article URL provided by the user (if input is a URL).
-    
-      **Targeted Domains for Search:**
-      * `kompas.com`
-      * `tempo.co`
-      * `cnnindonesia.com`
-      * `turnbackhoax.id`
-      * `cekfakta.com`
-    
-      **Note:** The agent processes information retrieved *live* from these sources via API results (snippets, links) and limited scraping, rather than operating on a pre-existing, fixed dataset.
-      """
+        {
+            "title": "Indonesian News Claim Verification Agent",
+          "demo_link": None, # Atau None jika tidak live, atau link video demo
+          "github_link": "https://github.com/belacks/news-verif-agent", # Ganti dengan URL repo Anda yang benar
+          "colab_link": "https://github.com/belacks/news-verif-agent/blob/master/agent_app.py", # Atau link ke Colab spesifik jika ada bagian di sana
+          "code_image_path": "images/project4_code.png", # Sesuaikan path gambar Anda
+          "result_image_path": "images/project4_result.png", # Sesuaikan path gambar Anda
+          "background": """
+          **Problem:** The rapid spread of misinformation and hoaxes online, particularly within specific regions like Indonesia, presents a significant challenge.
+          Manually verifying news claims by cross-referencing multiple trusted sources is time-consuming and difficult for the average user.
+          An automated assistant could significantly speed up the process of checking claims against reliable news and fact-checking websites.
+          """,
+          "description": """
+          This project features a conversational AI agent designed to assist users in verifying Indonesian news headlines or article URLs.
+          The agent accepts user input, identifies the core claim, and utilizes LangChain agents and tools to perform targeted web searches against a predefined list of trusted Indonesian news portals and fact-checking sites.
+          It leverages Google's Gemini Pro LLM to analyze the findings, synthesize information, and generate a structured verification report, including a classification (Hoax/Valid/Uncertain) and confidence score.
+          """,
+          "methodology_tools": """
+          * **Methodology:** LLM-powered Agent (ReAct framework), Tool Usage (Web Search, URL Scraping), Natural Language Understanding, Information Synthesis.
+          * **Tools:** Python, LangChain, Google Gemini Pro (via `langchain-google-genai` and Vertex AI API), Tavily Search API (for targeted web search), Requests & BeautifulSoup4 (for input URL scraping), Streamlit (for UI), Google Cloud Compute Engine (GCE for hosting), Python Virtual Environments (`venv`).
+          """,
+          "tasks": """
+          * Environment Setup: Configuring a GCE VM, setting up Python virtual environment, installing dependencies.
+          * GCP Authentication: Setting up Service Account permissions (IAM Roles, API Scopes) and authentication methods (ADC/Key File) for Vertex AI API access.
+          * Tool Implementation: Developing LangChain tools for targeted web search (using Tavily wrapper) and initial URL content scraping.
+          * Agent & Prompt Engineering: Designing and implementing a LangChain ReAct agent with detailed prompts to guide its reasoning, tool usage, and interaction with the LLM.
+          * LLM Integration: Integrating the Google Gemini Pro model via the `langchain-google-genai` library.
+          * Web Interface Development: Building an interactive user interface using Streamlit.
+          * Testing & Iteration: Evaluating the agent's performance on various news claims (hoaxes and valid news, titles and URLs) and refining prompts and logic based on results. Troubleshooting authentication and deployment issues.
+          """,
+          "benefits": """
+          * Provides users with a quick way to check Indonesian news claims against a curated list of trusted sources.
+          * Assists in combating the spread of misinformation by leveraging reliable news portals and fact-checking sites.
+          * Demonstrates a practical application of LLMs and LangChain agents for automated research and verification tasks.
+          * Offers a structured summary and confidence assessment, helping users evaluate news credibility more effectively.
+          """,
+          "dataset_source": """
+          **Information Sources:** Live Web Search Results & Scraped Input URL Content
+        
+          **Description:** Unlike projects relying on static datasets, this agent gathers information dynamically based on user input. It uses:
+          1.  **Targeted Web Search:** Employs the Tavily Search API to query specific, predefined Indonesian domains known for credible news or fact-checking.
+          2.  **Input URL Scraping:** Attempts to scrape the main text content directly from the news article URL provided by the user (if input is a URL).
+        
+          **Targeted Domains for Search:**
+          * `kompas.com`
+          * `tempo.co`
+          * `cnnindonesia.com`
+          * `turnbackhoax.id`
+          * `cekfakta.com`
+        
+          **Note:** The agent processes information retrieved *live* from these sources via API results (snippets, links) and limited scraping, rather than operating on a pre-existing, fixed dataset.
+          """
+        },
+        {
+          "title": "Real-time Audio Noise Suppression with GRUUNet2 and Streamlit",
+          "demo_link": None,
+          "github_link": "https://github.com/belacks/audio-denoising",
+          "colab_link": None,
+          "code_image_path": "images/project6_code.png",
+          "result_image_path": "images/project6_result.png",
+          "background": """
+          **Problem:** Background noise in real-time audio communication (e.g., online meetings, voice chats, streaming) significantly degrades user experience and comprehension.
+          Traditional noise suppression methods may not always be effective against diverse or non-stationary noises, or they might introduce undesirable audio artifacts.
+          There's a need for intelligent, real-time noise reduction that can adapt to various noise types while preserving the quality of the primary audio (speech).
+          """,
+          "description": """
+          This project implements a real-time audio noise suppression system using a deep learning model, GRUUNet2, integrated into an interactive web application built with Streamlit.
+          The application captures audio input from the user's microphone via WebRTC, processes it frame by frame to remove background noise, and plays back the cleaned audio in real-time.
+          The core denoising is performed by the GRUUNet2 model (a U-Net architecture with GRU cells) which operates on Mel Spectrogram representations of the audio.
+          The system aims to provide a user-friendly tool for cleaner audio, similar to noise suppression features found in popular communication platforms.
+          """,
+          "methodology_tools": """
+          * **Methodology:** Deep Learning-based Denoising, Supervised Learning (model predicts noise or clean signal components), Real-time Signal Processing (STFT, Mel Spectrogram, Inverse STFT/Griffin-Lim, Overlap-Add).
+          * **Model:** GRUUNet2 (PyTorch implementation)[cite: 1, 2].
+          * **Tools & Libraries:**
+            * **Python:** Core programming language.
+            * **PyTorch:** Deep learning framework for model building and inference[cite: 1, 2].
+            * **Streamlit:** For creating the interactive web user interface.
+            * **streamlit-webrtc:** For handling real-time audio streaming (microphone input, audio output) in the browser.
+            * **Librosa & Torchaudio:** For audio processing tasks like loading, resampling, STFT, Mel Spectrogram computation, and inverse transforms[cite: 1, 2, 3].
+            * **NumPy:** For numerical operations.
+            * **AV (PyAV):** For audio frame manipulation within `streamlit-webrtc`.
+          """,
+          "tasks": """
+          * **Model Implementation & Training:** Defining the GRUUNet2 architecture in PyTorch, preparing a dataset (not detailed here, but assumed to be noisy/clean audio pairs), and training the model to learn denoising patterns (details in `main.ipynb`)[cite: 1, 2].
+          * **Real-time Audio Pipeline Development:**
+            * Implementing STFT and Mel Spectrogram conversion for incoming audio frames.
+            * Integrating the trained GRUUNet2 model for real-time inference on these spectrogram frames.
+            * Maintaining the GRU hidden state (`hx`) across consecutive frames for temporal context.
+            * Implementing inverse Mel-scale transformation and Griffin-Lim algorithm for reconstructing the time-domain audio signal from the processed spectrogram.
+            * Implementing an Overlap-Add (OLA) mechanism for smooth audio output from framed processing.
+          * **Streamlit Web Application Development:**
+            * Building an interactive UI with start/stop controls for the denoising process.
+            * Integrating `streamlit-webrtc` to capture microphone audio and play back processed audio.
+            * Creating an `AudioProcessorBase` class to encapsulate the real-time audio processing logic.
+            * Managing application state and user interaction.
+          * **UI/UX Enhancements:** Styling the application with custom CSS for a more aesthetic and user-friendly experience.
+          * **Configuration & Debugging:** Setting up model configurations, STFT parameters, and troubleshooting issues related to real-time processing, model loading, and UI behavior.
+          """,
+          "benefits": """
+          * Provides users with an instant, real-time method to reduce background noise from their microphone input.
+          * Improves audio clarity for online communication, streaming, or recording directly from the browser.
+          * Demonstrates a practical application of a U-Net based model with recurrent (GRU) components for time-series signal processing.
+          * Offers an interactive and user-friendly interface built with Streamlit, making advanced denoising accessible.
+          * Showcases the integration of PyTorch models into a real-time web application using `streamlit-webrtc`.
+          """,
+          "dataset_source": """
+          **Input Data:** Real-time audio stream from the user's microphone.
+        
+          **Training Data (Assumed based on `main.ipynb` and general practice):**
+          The GRUUNet2 model was likely trained on a dataset consisting of pairs of noisy audio and corresponding clean (target) audio. The `main.ipynb` suggests processing of audio files, potentially mixing clean speech with various noise types to create these training pairs. The model learns to transform or separate the noise components from the speech components in the Mel Spectrogram domain[cite: 1]. The specific noise and clean speech datasets used for training are not detailed here but would have been part of the model development phase.
+          """
     },
     {
         "title": "Jabodetabek Food Price Forecasting [Work In Progress - v0.1]",
