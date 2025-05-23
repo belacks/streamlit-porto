@@ -144,7 +144,7 @@ projects = [
         },
         {
           "title": "Real-time Audio Noise Suppression with GRUUNet2 and Streamlit",
-          "demo_link": None,
+          "demo_link": "https://audiodenoise.streamlit.app",
           "github_link": "https://github.com/belacks/audio-denoising",
           "colab_link": "https://github.com/belacks/audio-denoising",
           "code_image_path": "images/project6_code.png",
